@@ -1,8 +1,10 @@
-import React from 'react'
 
-const OverlayMenu = () => {
+
+const OverlayMenu = (isOpen,onClose) => {
   return (
-    <div>OverlayMenu</div>
+    <div>
+      
+    </div>
   )
 }
 
