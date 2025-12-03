@@ -9,11 +9,13 @@ import Testmoniyals from './sections/Testmoniyals'
 import Contact from './sections/Contact'
 import Foooter from './sections/Foooter'
 import ParticalsBackground from './components/ParticalsBackground'
-
+import CustomCursur from './components/CustomCursur'
 const App = () => {
   return (
     <div className='relative gradient text-white'>
+      <CustomCursur/>
       <ParticalsBackground/>
+    
       <Navbar/>
       <Home/>
       <About/>

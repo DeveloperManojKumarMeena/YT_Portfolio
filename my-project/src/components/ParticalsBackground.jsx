@@ -13,7 +13,7 @@ export default function ParticalsBackground(){
 
     let particals =[];
     const particaleCount = 50;
-    const colors = ["rgba(255,255,255,0.7)"]
+    const colors = ["rgba(255,255,255,0.9)"]
     class Particale{
       constructor(){
         this.x = Math.random()*canvas.width;
@@ -28,7 +28,7 @@ export default function ParticalsBackground(){
         ctx.arc(this.x, this.y,this.radius,0,Math.PI*2)
         ctx.shadowBlur=10;
         ctx.shadowColor = this.color;
-        ctx.fillstyle =this.color;
+        ctx.fillStyle =this.color;
         ctx.fill()
       }
       update(){
