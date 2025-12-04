@@ -34,17 +34,22 @@ const Navbar = () => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // 1. forceVisible की जाँच
+      // 1. forceVisible की जाँच (और टाइमर क्लियर)
       if (forceVisible) {
         setvisible(true); // होम सेक्शन में हमेशा visible
-        return; // आगे का लॉजिक छोड़ दें
+        // यदि कोई ऑटो-हाइड टाइमर चल रहा है, तो उसे तुरंत रोकें।
+        if (timerId.current) clearTimeout(timerId.current);
+        lastScrollY.current = currentScrollY;
+        return; // **यह सुनिश्चित करता है कि नीचे का कोई भी छिपाने वाला लॉजिक नहीं चलेगा**
       }
 
-      // 2. नीचे स्क्रॉल करना (स्क्रॉल डाउन)
-      if (currentScrollY > lastScrollY.current && currentScrollY > 100) { // 100px से अधिक स्क्रॉल करने पर ही छिपाएँ
-        setvisible(false); // नेव बार छिपाएँ
-        // यदि छिपा रहे हैं, तो टाइमर को साफ़ करने की आवश्यकता नहीं है
+      // -------------------------------------------------------------
+      // **यह लॉजिक केवल तभी चलेगा जब forceVisible = false हो (यानी #home से बाहर हों)**
+      // -------------------------------------------------------------
 
+      // 2. नीचे स्क्रॉल करना (स्क्रॉल डाउन)
+      if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
+        setvisible(false); // नेव बार छिपाएँ
       }
       // 3. ऊपर स्क्रॉल करना (स्क्रॉल अप)
       else if (currentScrollY < lastScrollY.current) {
@@ -53,20 +58,21 @@ const Navbar = () => {
         // पुराने टाइमर को साफ़ करें और नया टाइमर सेट करें (ऑटो-हाइड के लिए)
         if (timerId.current) clearTimeout(timerId.current);
         timerId.current = setTimeout(() => {
-          setvisible(false) // 3 सेकंड बाद इसे फिर से छिपा दें, यदि कोई स्क्रॉलिंग नहीं हो रही है
+          setvisible(false) // 3 सेकंड बाद इसे फिर से छिपा दें
         }, 3000);
       }
 
       lastScrollY.current = currentScrollY;
     }
 
+    //... (बाकी window event listener वाला कोड)
     window.addEventListener("scroll", handleScroll, { passive: true })
 
     return () => {
       window.removeEventListener("scroll", handleScroll)
-      if (timerId.current) clearTimeout(timerId.current); // <--- FIX: clearTimeout() को कॉल किया जाना चाहिए
+      if (timerId.current) clearTimeout(timerId.current);
     }
-  }, [forceVisible]) // dependency array में forceVisible जोड़ें
+  }, [forceVisible]) // Dependency Array आवश्यक है // dependency array में forceVisible जोड़ें
 
 
   return (

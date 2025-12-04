@@ -14,7 +14,7 @@ const App = () => {
   return (
     <div className='relative gradient text-white'>
       <CustomCursur/>
-      <ParticalsBackground/>
+   
     
       <Navbar/>
       <Home/>
