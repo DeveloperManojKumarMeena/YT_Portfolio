@@ -43,7 +43,7 @@ const Home = () => {
       if (!deleting && subindex < currentRole.length) setsubindex(v => v + 1);
       else if (!deleting && subindex === currentRole.length) setTimeout(() => setdeleting(true), 1200)
       else if (deleting && subindex > 0) setsubindex(v => v - 1);
-      else if (deleting && subindex === 0) { // <-- && का उपयोग किया गया और कर्ली ब्रेसेस जोड़ी गईं
+      else if (deleting && subindex === 0) { 
         setdeleting(false);
         setindex(p => (p + 1) % roles.length);
       }
@@ -113,7 +113,7 @@ const Home = () => {
             </motion.div>
 
             <div className='mt-10 flex gap-10 text-2xl md:text-3xl justify-center lg:justify-start '>
-              {socialLinks.map(({ icon: Icon, link, label }) => ( // parentheses का उपयोग करें
+              {socialLinks.map(({ icon: Icon, link, label }) => ( 
                 <motion.a
                   href={link}
                   key={label}
@@ -124,9 +124,9 @@ const Home = () => {
                   initial="initial"
                   whileHover="hover"
                   whileTap="tap"
-                  className='text-white/70 hover:text-white' // कलर ठीक किया गया
+                  className='text-white/70 hover:text-white' 
                 >
-                  <Icon /> {/* icon को Icon के रूप में इस्तेमाल किया */}
+                  <Icon /> 
                 </motion.a>
               ))}
             </div>
