@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react'
-import { motion } from 'framer-motion'
+import { hover, motion, scale } from 'framer-motion'
 import ParticalsBackground from '../components/ParticalsBackground'
+import { FaXTwitter, FaLinkedinIn, FaGithub } from "react-icons/fa6";
 
 
 
@@ -13,7 +14,30 @@ const Home = () => {
   const [subindex, setsubindex] = React.useState(0)
   const [deleting, setdeleting] = React.useState(false)
 
+  const socialLinks = [
+    { icon: FaXTwitter, link: 'https://x.com/StudioVol', label: 'X' },
+    { icon: FaLinkedinIn, link: 'https://www.linkedin.com/in/manojkumarmeenasir/', label: 'LinkedIn' },
+    { icon: FaGithub, link: 'https://github.com/DeveloperManojKumarMeena', label: 'GitHub' },]
+
+  const glowVariant = {
+    initial: {
+      scale: 1, y: 0, filter: "drop-shadow(0 0 0 rgba(0,0,0,0))"
+    },
+    hover: {
+      scale: 1.2, y: -3,
+      filter: "drop-shadow(0 0 8px rgba(13,88,204,0.9)) drop-shadow(0 0 18px rgba(16,185,129,0.8))",
+      transition: { type: "spring", stiffness: 300, damping: 15 }
+    },
+    tap: {
+      scale: 0.9, y: 0, transition: { duration: 0.08 }
+    }
+  }
+
+
   React.useEffect(() => {
+
+
+
     const currentRole = roles[index]
     const timeout = setTimeout(() => {
       if (!deleting && subindex < currentRole.length) setsubindex(v => v + 1);
@@ -65,31 +89,70 @@ const Home = () => {
 
             <motion.h1 className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text 
             bg-gradient-to-r from-[#1cd8d2] via-[#00bf8f] to-[#302b63] drop-shadow-lg'
-             initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}>Hello I'm <br />
               <span className='text-white font-bold text-5xl sm:text-6xl md:text-7xl lg:whitespace-nowrap'>Manoj Kumar</span>
             </motion.h1>
-            
+
             <motion.p className='mt-6 text-white/75 text-sm sm:text-base md:text-lg leading-relaxed'
-             initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.4 ,delay:0.2}}>
+              transition={{ duration: 1.4, delay: 0.2 }}>
               I'm a passionate web developer specializing in creating dynamic and beautiful web applications. With a strong foundation in both frontend and backend technologies, I strive to build seamless user experiences and efficient solutions.
-            </motion.p> 
+            </motion.p>
             <motion.div className='mt-10 flex flex-wrap gap-6 items-center justify-center lg:justify-start'
-            initial={{ opacity: 0,}}
+              initial={{ opacity: 0, }}
               animate={{ opacity: 1, }}
-              transition={{ duration: 0.8 ,delay:0.8}}
+              transition={{ duration: 0.8, delay: 0.8 }}
             >
-              <a href="#Projects" 
-              className='px-6 py-3 rounded-full font-medium text-lg text-white  bg-gradient-to-r from-[#1cd8d2] via-[#00bf8f] to-[#302b63] shadow-lg hover:scale-105 transition-all '
+              <a href="#Projects"
+                className='px-6 py-3 rounded-full font-medium text-lg text-white  bg-gradient-to-r from-[#1cd8d2] via-[#00bf8f] to-[#302b63] shadow-lg hover:scale-105 transition-all '
               >View My Work</a>
               <a href="/Manoj Kumar.pdf" download className='px-6 py-3 rounded-full font-medium text-lg text-black bg-white hover:text-gray-800  hover:scale-105 transition-all'>My Resume</a>
             </motion.div>
 
+            <div className='mt-10 flex gap-10 text-2xl md:text-3xl justify-center lg:justify-start '>
+              {socialLinks.map(({ icon: Icon, link, label }) => ( // parentheses का उपयोग करें
+                <motion.a
+                  href={link}
+                  key={label}
+                  target="_blank"
+                  aria-label={label}
+                  rel='noopener noreferrer'
+                  variants={glowVariant}
+                  initial="initial"
+                  whileHover="hover"
+                  whileTap="tap"
+                  className='text-white/70 hover:text-white' // कलर ठीक किया गया
+                >
+                  <Icon /> {/* icon को Icon के रूप में इस्तेमाल किया */}
+                </motion.a>
+              ))}
+            </div>
+
           </div>
         </div>
+
+        <div className=' relative hidden lg:block'>
+          <div
+            className='absolute top-1/2 -translate-y-1/2 object-contain select-none pointer-events-none'
+            style={{
+              right: "10px", width: 'min(22vh ,410px)', height: 'min(40vw ,760px', borderRadius: '50%', filter: 'blur(38px)', opacity: '0.32', background: 'conic-gradient(from 0deg ,#1cd48d2, #00bf8f, #302b63,1cd8d2'
+            }}
+          />
+          <motion.img src="https://ik.imagekit.io/e4xnddmwc/avator.png" alt="Manoj Kumar Avatar"
+            className='absolute bottom-1/2 translate-y-1/2 object-cover select-none pointer-events-none'
+            style={
+              { right: "30px", width: 'min(60vh , 780px)', maxheight: '100vh' }
+            }
+            initial={{ opacity: 0, y: 40, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          />
+        </div>
+
+
       </div>
 
 
