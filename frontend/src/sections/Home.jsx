@@ -77,8 +77,19 @@ const Home = () => {
       <div className=' relative z-10 h-full w-full  mx-auto px-20 grid grid-cols-1 lg:grid-cols-2 '>
         <div className=' flex flex-col justify-center h-full text-center lg:text-left relative'>
           <div className='w-full lg:pr-24 mx-auto max-w-[48rem]'>
+            
+
+            <motion.h1 className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text 
+            bg-gradient-to-r from-[#1cd8d2] via-[#00bf8f] to-[#302b63] drop-shadow-lg'
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}>Hello, I'm <br />
+              <span className='text-white font-bold text-5xl sm:text-6xl md:text-7xl lg:whitespace-nowrap'>Manoj Kumar</span>
+            </motion.h1>
+
+
             <motion.div
-              className='mb-3 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-white tracking-wide min-h-[1.6em]'
+              className='mb-3 text-xl sm:text-2xl md:text-3xl lg:text-2xl font-semibold text-white tracking-wide min-h-[1.6em]'
               initial={{ opacity: 0, y: 120 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -87,13 +98,7 @@ const Home = () => {
               <span className='inline-block w-[2px] ml-1 bg-white animate-pulse align-middle' style={{ height: "1em" }}></span>
             </motion.div>
 
-            <motion.h1 className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text 
-            bg-gradient-to-r from-[#1cd8d2] via-[#00bf8f] to-[#302b63] drop-shadow-lg'
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}>Hello I'm <br />
-              <span className='text-white font-bold text-5xl sm:text-6xl md:text-7xl lg:whitespace-nowrap'>Manoj Kumar</span>
-            </motion.h1>
+
 
             <motion.p className='mt-6 text-white/75 text-sm sm:text-base md:text-lg leading-relaxed'
               initial={{ opacity: 0, y: 40 }}

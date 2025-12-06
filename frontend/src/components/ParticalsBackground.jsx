@@ -77,7 +77,7 @@ export default function ParticalsBackground(){
   },[])
 
   return(
-  <canvas ref={CanvasRef} className="fixed top-0 left-0 w-full h-full pointer-events-none z-0">
+  <canvas ref={CanvasRef} className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
 
   </canvas>)
 }
