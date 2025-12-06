@@ -6,7 +6,8 @@ const About = () => {
   const stats = [
     { label: "Experience", value: "1+year" },
     { label: "Speciality", value: "MERN Stack" },
-    { label: "Focus", value: "Performance & UX" }
+    { label: "Focus", value: "Performance & UX" },
+    { label: "Achievements", value: "Win React Ui Hackathon" },
   ]
 
   const glows = [
