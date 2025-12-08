@@ -2,9 +2,9 @@ import React from 'react'
 
 const Projects = () => {
   return (
-    <div className='w-full h-screen'>
-      Projects Section
-    </div>
+   <section className='w-full h-full'>
+
+   </section>
   )
 }
 
