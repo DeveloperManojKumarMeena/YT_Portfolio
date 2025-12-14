@@ -43,7 +43,7 @@ const Home = () => {
       if (!deleting && subindex < currentRole.length) setsubindex(v => v + 1);
       else if (!deleting && subindex === currentRole.length) setTimeout(() => setdeleting(true), 1200)
       else if (deleting && subindex > 0) setsubindex(v => v - 1);
-      else if (deleting && subindex === 0) { 
+      else if (deleting && subindex === 0) {
         setdeleting(false);
         setindex(p => (p + 1) % roles.length);
       }
@@ -77,7 +77,7 @@ const Home = () => {
       <div className=' relative z-10 h-full w-full  mx-auto px-20 grid grid-cols-1 lg:grid-cols-2 '>
         <div className=' flex flex-col justify-center h-full text-center lg:text-left relative'>
           <div className='w-full lg:pr-24 mx-auto max-w-[48rem]'>
-            
+
 
             <motion.h1 className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-transparent bg-clip-text 
             bg-gradient-to-r from-[#1cd8d2] via-[#00bf8f] to-[#302b63] drop-shadow-lg'
@@ -114,11 +114,11 @@ const Home = () => {
               <a href="#Projects"
                 className='px-6 py-3 rounded-full font-medium text-lg text-white  bg-gradient-to-r from-[#1cd8d2] via-[#00bf8f] to-[#302b63] shadow-lg hover:scale-105 transition-all '
               >View My Work</a>
-              <a href="/Manoj Kumar.pdf" download className='px-6 py-3 rounded-full font-medium text-lg text-black bg-white hover:text-gray-800  hover:scale-105 transition-all'>My Resume</a>
+              <a href="https://ik.imagekit.io/e4xnddmwc/resume.pdf" download className='px-6 py-3 rounded-full font-medium text-lg text-black bg-white hover:text-gray-800  hover:scale-105 transition-all'>My Resume</a>
             </motion.div>
 
             <div className='mt-10 flex gap-10 text-2xl md:text-3xl justify-center lg:justify-start '>
-              {socialLinks.map(({ icon: Icon, link, label }) => ( 
+              {socialLinks.map(({ icon: Icon, link, label }) => (
                 <motion.a
                   href={link}
                   key={label}
@@ -129,9 +129,9 @@ const Home = () => {
                   initial="initial"
                   whileHover="hover"
                   whileTap="tap"
-                  className='text-white/70 hover:text-white' 
+                  className='text-white/70 hover:text-white'
                 >
-                  <Icon /> 
+                  <Icon />
                 </motion.a>
               ))}
             </div>
