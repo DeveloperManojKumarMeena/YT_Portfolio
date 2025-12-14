@@ -34,7 +34,7 @@ const Testmoniyals = () => {
 ];
 
   return (
-    <section id='testmoniyals' className='relative min-h-screen bg-black text-white flex flex-col items-center justify-center px-6 py-20'>
+    <section id='testimonials' className='relative min-h-screen bg-black text-white flex flex-col items-center justify-center px-6 py-20'>
         <motion.h2 className='text-4xl font-bold mb-16'
         initial = {{opacity:0,y:-50}}
         animate ={{opacity:1 ,y:0}}
