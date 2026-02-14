@@ -26,13 +26,14 @@ The main focus of this portfolio is **smooth performance, modern design, interac
 
 | Category | Technologies |
 |---------|-------------|
+`
 | Frontend | React.js, JavaScript |
 | Styling | Tailwind CSS |
 | Animations | GSAP, Framer Motion |
 | Contact / Email | EmailJS |
 | Other Tools | Git, GitHub, VS Code |
+`
 
----
 
 ## 📬 Contact Form (EmailJS)
 The website includes a custom contact form where visitors can send messages directly.  
@@ -40,7 +41,7 @@ EmailJS handles the mail securely — without needing a backend server.
 
 ---
 
-## 📁 Folder Structure (Short Overview)
+
 
 ---
 
